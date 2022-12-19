@@ -2,12 +2,18 @@
 
 ---
 
-- [**Esej**](#user-information)
+- [**Esej**](#esej)
 - [**Domáca úloha č. 2**](#domáca-úloha-č.-2)
 - [**Domáca úloha č. 3**](#domáca-úloha-č.-3)
 - [**Domáca úloha č. 4**](#domáca-úloha-č.-4)
 - [**Domáca úloha č. 5**](#domáca-úloha-č.-5)
 - [**Domáca úloha č. 6**](#domáca-úloha-č.-6)
+
+---
+
+### ESEJ
+
+Napíš si vlastnú.
 
 ---
 
