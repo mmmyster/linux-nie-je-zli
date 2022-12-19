@@ -92,7 +92,7 @@ find / -name "*conf*" -size -20M 2>/dev/null/
 ###### b) doplňte riešenie v bode a) tak, aby ste o každom nájdenom súbore vypísali informácie o súbore (HIND: nástroj ls má prepínač pre podrobné informácie o súboroch a adresároch, použite manuálové stránky), akú veľkosť majú tieto súbory?
 
 ```
-find / -name "*conf*" -size -20M 2>/dev/null -exec ls -lh {} \; | cut -d " " -f 5
+find / -name "*conf*" -size -20M 2>/dev/null -exec ls -lh {} \;
 ```
 
 ###### c) upravte riešenie v bode b) tak, aby ste zobrazili prvých 5 riadkov každého súboru
@@ -242,16 +242,20 @@ find /etc -name "*.conf" -exec wc -l {} + | sort -rn
 ###### a) riadky neobsahujú slovo bash
 
 ```
-cat /etc/passwd | grep -v bash | wc -m
+grep -v bash /etc/passwd | wc -m
 ```
 
 ###### b) riadky obsahujú slovo home, ale neobsahujú slovo nologin a stĺpce obsahujú názov používateľa, domovský adresár a shell
 
 ```
-cat /etc/passwd | grep home | grep -v nologin |  wc -m
+grep home /etc/passwd | grep -v nologin | cut -d : -f 1,6,7 | wc -m
 ```
 
 ###### c) stĺpec popisuje poznámky o používateľoch
+
+```
+cut -d : -f 5 /etc/passwd | wc -m
+```
 
 ##### Bonus: Vysvetlite, čo sú signály. Signály majú svoje čísla. Na konkrétnom príklade vysvetlite rozdiel medzi signálmi 9,15,19.
 
