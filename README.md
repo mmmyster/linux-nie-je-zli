@@ -9,11 +9,11 @@ Podobne ako spieva Jožo Ráž vo svojej piesni, ani Linux nie je zlí. Mysli na
 ---
 
 - [**Esej**](#esej)
-- [**Domáca úloha č. 2**](#domáca-úloha-č.-2)
-- [**Domáca úloha č. 3**](#domáca-úloha-č.-3)
-- [**Domáca úloha č. 4**](#domáca-úloha-č.-4)
-- [**Domáca úloha č. 5**](#domáca-úloha-č.-5)
-- [**Domáca úloha č. 6**](#domáca-úloha-č.-6)
+- [**Domáca úloha 2**](#domáca-úloha-2)
+- [**Domáca úloha 3**](#domáca-úloha-3)
+- [**Domáca úloha 4**](#domáca-úloha-4)
+- [**Domáca úloha 5**](#domáca-úloha-5)
+- [**Domáca úloha 6**](#domáca-úloha-6)
 
 ---
 
@@ -23,7 +23,7 @@ Napíš si vlastnú.
 
 ---
 
-### DOMÁCA ÚLOHA Č. 2
+### DOMÁCA ÚLOHA 2
 
 ##### 2.1: Pomocou jedného príkazu (vrátane vhodných prepínačov) vytvorte niekoľko adresárov v štruktúre /home/{Váš domovský adresár}/ZLI/domov/uloha.
 
@@ -115,7 +115,7 @@ cat /etc/os-release
 
 ---
 
-### DOMÁCA ÚLOHA Č. 3
+### DOMÁCA ÚLOHA 3
 
 ##### 3.1
 
@@ -209,7 +209,7 @@ V linuxe máme tri základné a jednu pridanú časovú pečiatku. sú to modifi
 
 ---
 
-### DOMÁCA ÚLOHA Č. 4
+### DOMÁCA ÚLOHA 4
 
 ##### 4.1: Vypíšte všetky procesy na Vašom virtuálnom stroji:
 
@@ -277,7 +277,7 @@ kill -19 pid
 
 ---
 
-### DOMÁCA ÚLOHA Č. 5
+### DOMÁCA ÚLOHA 5
 
 ##### 5.1: V rámci svojho operačného systému spočítajte:
 
@@ -348,7 +348,7 @@ make install
 
 ---
 
-### DOMÁCA ÚLOHA Č. 6
+### DOMÁCA ÚLOHA 6
 
 ##### 6.1:
 
