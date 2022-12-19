@@ -1,3 +1,9 @@
+# LINUX NIE JE ZLI
+
+Podobne ako spieva Jožo Ráž vo svojej piesni, ani Linux nie je zlí. Mysli na to napriek tomu, že budeš čítať tieto domáce úlohy z predmetu ZLI 🦅.
+
+---
+
 ### OBSAH
 
 ---
