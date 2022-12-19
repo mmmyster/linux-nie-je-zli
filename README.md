@@ -262,3 +262,74 @@ kill pid
 ```
 kill -19 pid
 ```
+
+---
+
+### DOMÁCA ÚLOHA Č. 5
+
+##### 5.1: V rámci svojho operačného systému spočítajte:
+
+###### a) počet nainštalovaných balíčkov
+
+```
+apt list --installed | wc -l
+```
+
+###### b) počet balíčkov, ktoré je možné aktualizovať (upgradovať)
+
+```
+apt list --upgradable | wc -l
+```
+
+##### 5.2: Vyhľadajte v celom operačnom systéme súbory a následne vykonajte konkrétnu činnosť:
+
+###### a) vyhľadajte súbory, ktorých veľkosť presahuje 300MB a zmeňte týmto súborom vlastníka a skupinu na root:root
+
+```
+find / -size +300M 2> /dev/null -exec chown root:root {} \;
+```
+
+###### b) vyhľadajte súbory, ktoré sa končia na príponu conf a zmeňte oprávnenia k týmto súborom na 770
+
+```
+find / -name "*.conf" 2> /dev/null -exec chmod 770 {} \;
+```
+
+##### 5.3: Jednorázovo naplánujte:
+
+###### a) reštart systému o 3 hodiny od času zadania úlohy
+
+```
+echo "reboot" | at now + 3 hours
+```
+
+###### b) reštart systému 20.12.2022 o 15:20
+
+```
+b) echo "reboot" | at 15:20 122022
+```
+
+##### 5.4:
+
+###### a) vytvorte tar archív z adresára `/etc` a uložte ho do domovského adresára pod názvom "zaloha.tar.gz"
+
+```
+sudo tar -czvf zaloha.tar.gz /etc
+```
+
+###### b) vytvorte zip archív z adresára `/var` a uložte ho do domovského adresára pod názvom "zaloha.zip". (Doinštalujte príslušný balík, ak je potrebný na splnenie tohto zadania)
+
+```
+sudo zip -r zaloha.zip /var
+```
+
+##### Bonus: Nainštalujte program git (vhodný balík nájdite v repozitáre balíčkov). Nainštalujte program nmap z tohto zdroja: https://github.com/nmap/nmap. Postup inštalácie popíšte. (HINT: Na webovom odkaze vpravo hore klik na zelené Code a v časti Local - Clone nájdete dokaz na repozitár.)
+
+```
+sudo apt-get install git
+git clone https://github.com/nmap/nmap
+cd nmap
+./configure
+make
+make install
+```
