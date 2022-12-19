@@ -333,3 +333,78 @@ cd nmap
 make
 make install
 ```
+
+---
+
+### DOMÁCA ÚLOHA Č. 6
+
+##### 6.1:
+
+###### a) pridajte si virtuálny disk ľubovolnej veľkosti, vytvorte na ňom 2 particie, prvá partícia má mať 1.5 GB a druhá partícia zvyšnú voľnú veľkosť disku (aby neostalo ňevyhradené miesto), svoj postup popíšte
+
+vo VM si pridáme nový virtuálny disk, vytvoríme na ňom dve partície pomocou `fdisk /dev/sdb`
+ďalej `n`, odsúhlasíme číslo a počiatočný sektor partície a nastavíme veľkost cez `+1.5G`
+pre druhú partíciu postup opakujeme až na posledný krok, kedy v našom prípade stačí znova potvrdiť enterom, aby partícia zaberala zvyšok miesta na disku
+
+###### b) naformátujte väčšiu z partícií (z úlohy v bode a) na súborový systém `ext4`, namontujte ju na ľubovoľné rozumné miesto (napr. `/mnt`)
+
+```
+mkfs.ext4 /dev/sdb1
+mount /dev/sdb1 /mnt
+```
+
+###### c) pomocou absolútnej cesty vytvorne na partícií vytvorenej v bode b) súbor `mojaPartícia.txt`, odpojte partíciu.
+
+```
+touch /mnt/mojaParticia.txt
+umount /mnt
+```
+
+##### 6.2: V rámci svojho operačného systému nastavte nasledujúce sieťové nastavenia:
+
+###### a) nastavte sieťové rozhranie (nie loopback) virtuálneho stroja tak, aby sieťové rozhranie malo IP adresu 10.0.1.44/24 (použite nástroj ip)
+
+```
+sudo ip a a 10.0.1.44/24 dev enp0s7
+```
+
+###### b) nastavte meno virtuálneho stroja na `moja_virtuálka`
+
+```
+sudo nano /etc/hostname
+```
+
+vymažeme starý názov a nastavíme nový, následne je potrebný ešte reštart cez `sudo reboot`
+
+###### c) nastavte DNS servery pre Váš systém: 8.8.8.8, 158.197.16.31
+
+```
+sudo nano etc/resolv.conf
+```
+
+##### 6.3:
+
+###### a) pridajte v nastaveniach virtuálneho stroja 2 sieťové adaptéry
+
+v nastaveniach siete pridáme dva adaptéry a cez `ip a` zistíme ich označenia
+
+###### b) napíšte vzorovú konfiguráciu pre tieto 2 sieťové adaptéry pomocou nástroja netplan, jeden adaptér nech získava nastavenia pomocou DHCP a druhý nech ma statickú adresu 10.1.0.230 s maskou podsiete 255.255.0.0/16, gateway (brána) nech je 10.1.0.1 a DNS servery 1.1.1.1 a 8.8.8.8. (HINT: https://netplan.io/examples/)
+
+v priečinku `/etc/netplan` vytvorime nový, alebo upravíme už existujúci súbor s príponou .yaml
+
+```
+network:
+	version: 2
+	renderer: networkd
+	ethernets:
+		enp0s3:
+			dhcp4: true
+		enp0s8:
+			addresses:
+				- 10.1.0.230/16
+			gateway4: 10.1.0.1
+			nameservers:
+				addresses: [1.1.1.1, 8.8.8.8]
+```
+
+na aplikovanie použijeme príkaz `sudo netplan apply`
